@@ -125,7 +125,7 @@ const Index = () => {
               </div>
               <div>
                 <h1 className="text-2xl md:text-3xl font-bold text-white">Воспитатель</h1>
-                <p className="text-sm text-white/90">Детский сад "Радуга"</p>
+                <p className="text-sm text-white/90">Детский сад "Солнышко"</p>
               </div>
             </div>
             <div className="relative">
