@@ -116,11 +116,11 @@ const Index = () => {
 
   return (
     <div className="min-h-screen pb-20">
-      <header className="sticky top-0 z-50 backdrop-blur-sm" style={{ background: 'linear-gradient(135deg, #FFB76B 0%, #FF8A5C 100%)' }}>
+      <header className="sticky top-0 z-50 backdrop-blur-xl" style={{ background: 'linear-gradient(135deg, rgba(155, 135, 245, 0.95) 0%, rgba(126, 105, 230, 0.95) 100%)', boxShadow: '0 8px 32px rgba(155, 135, 245, 0.3)' }}>
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3 animate-squeeze">
-              <div className="w-16 h-16 rounded-full plasticine-shine flex items-center justify-center text-4xl" style={{ background: 'linear-gradient(145deg, #FFF 0%, #FFE0B8 100%)', boxShadow: '0 8px 20px rgba(255, 140, 60, 0.35), 0 0 0 3px rgba(255, 255, 255, 0.5) inset' }}>
+              <div className="w-16 h-16 rounded-full clay-texture plasticine-shine flex items-center justify-center text-4xl animate-glow" style={{ background: 'linear-gradient(145deg, #FFF5E0 0%, #FFDB58 100%)', boxShadow: '0 12px 30px rgba(255, 219, 88, 0.5), 0 0 0 4px rgba(255, 255, 255, 0.8) inset, 0 0 20px rgba(255, 219, 88, 0.3)' }}>
                 ☀️
               </div>
               <div>
@@ -131,7 +131,8 @@ const Index = () => {
             <div className="relative">
               <Button
                 onClick={handleSubscribe}
-                className="plasticine-button bg-secondary text-secondary-foreground hover:bg-secondary/90 shadow-[0_6px_0_0_rgba(0,0,0,0.1)]"
+                className="plasticine-button text-white"
+                style={{ background: 'linear-gradient(145deg, rgba(232, 121, 249, 0.95) 0%, rgba(217, 70, 239, 0.95) 100%)' }}
               >
                 <Icon name="Bell" size={20} />
                 {notifications > 0 && <span className="notification-badge">{notifications}</span>}
@@ -141,7 +142,7 @@ const Index = () => {
         </div>
       </header>
 
-      <nav className="sticky top-[88px] z-40 backdrop-blur-md" style={{ background: 'rgba(255, 255, 255, 0.85)', borderBottom: '3px solid rgba(255, 183, 107, 0.3)', boxShadow: '0 4px 20px rgba(0, 0, 0, 0.06)' }}>
+      <nav className="sticky top-[88px] z-40 backdrop-blur-xl" style={{ background: 'rgba(255, 255, 255, 0.75)', borderBottom: 'none', boxShadow: '0 8px 32px rgba(155, 135, 245, 0.1)' }}>
         <div className="container mx-auto px-4">
           <div className="flex gap-2 py-3 overflow-x-auto">
             {[
@@ -158,10 +159,10 @@ const Index = () => {
                 key={item.id}
                 onClick={() => setActiveSection(item.id)}
                 variant={activeSection === item.id ? 'default' : 'outline'}
-                className="plasticine-button whitespace-nowrap"
+                className="plasticine-button clay-texture whitespace-nowrap"
                 style={activeSection === item.id 
-                  ? { background: 'linear-gradient(145deg, #FFB76B 0%, #FFA055 100%)', color: 'white' }
-                  : { background: 'linear-gradient(145deg, #FFFFFF 0%, #FFF8F0 100%)', color: '#555' }
+                  ? { background: 'linear-gradient(145deg, #9B87F5 0%, #7E69E6 100%)', color: 'white' }
+                  : { background: 'linear-gradient(145deg, rgba(255, 255, 255, 0.9) 0%, rgba(250, 248, 255, 0.9) 100%)', color: '#4A4A4A' }
                 }
               >
                 <Icon name={item.icon as any} size={18} />
@@ -175,9 +176,9 @@ const Index = () => {
       <main className="container mx-auto px-4 py-8">
         {activeSection === 'home' && (
           <div className="space-y-8 animate-in fade-in duration-500">
-            <Card className="plasticine-card plasticine-shine p-8 border-0" style={{ background: 'linear-gradient(145deg, #FFF8F0 0%, #FFE8D5 100%)' }}>
+            <Card className="plasticine-card clay-texture p-8 border-0">
               <div className="flex flex-col md:flex-row items-center gap-6">
-                <div className="w-32 h-32 rounded-full plasticine-shine flex items-center justify-center text-6xl animate-float" style={{ background: 'linear-gradient(145deg, #FFD580 0%, #FFC04D 100%)', boxShadow: '0 12px 30px rgba(255, 183, 107, 0.4), 0 0 0 4px rgba(255, 255, 255, 0.6) inset' }}>
+                <div className="w-32 h-32 rounded-full clay-texture plasticine-shine flex items-center justify-center text-6xl animate-float" style={{ background: 'linear-gradient(145deg, #E879F9 0%, #D946EF 100%)', boxShadow: '0 20px 50px rgba(232, 121, 249, 0.4), 0 0 0 5px rgba(255, 255, 255, 0.7) inset' }}>
                   👩‍🏫
                 </div>
                 <div className="flex-1 text-center md:text-left">
@@ -191,24 +192,24 @@ const Index = () => {
             </Card>
 
             <div className="grid md:grid-cols-3 gap-6">
-              <Card className="plasticine-card bg-pink-100 p-6 border-4 border-pink-300 shadow-[0_8px_0_0_rgba(219,39,119,0.3)] hover:shadow-[0_4px_0_0_rgba(219,39,119,0.3)]">
+              <Card className="plasticine-card clay-texture p-6 border-0" style={{ background: 'linear-gradient(145deg, rgba(255, 192, 203, 0.3) 0%, rgba(255, 182, 193, 0.3) 100%)' }}>
                 <div className="text-5xl mb-4 animate-squeeze">🎨</div>
                 <h3 className="text-2xl font-bold mb-2 text-pink-800">Творчество</h3>
                 <p className="text-pink-900">Развиваем фантазию и мелкую моторику</p>
               </Card>
-              <Card className="plasticine-card bg-green-100 p-6 border-4 border-green-300 shadow-[0_8px_0_0_rgba(34,197,94,0.3)] hover:shadow-[0_4px_0_0_rgba(34,197,94,0.3)]">
+              <Card className="plasticine-card clay-texture p-6 border-0" style={{ background: 'linear-gradient(145deg, rgba(99, 179, 237, 0.25) 0%, rgba(59, 130, 246, 0.25) 100%)' }}>
                 <div className="text-5xl mb-4 animate-squeeze" style={{ animationDelay: '0.3s' }}>
                   🧠
                 </div>
-                <h3 className="text-2xl font-bold mb-2 text-green-800">Развитие</h3>
-                <p className="text-green-900">Игровые методики обучения</p>
+                <h3 className="text-2xl font-bold mb-2" style={{ color: '#3B82F6' }}>Развитие</h3>
+                <p style={{ color: '#1E3A8A' }}>Игровые методики обучения</p>
               </Card>
-              <Card className="plasticine-card bg-yellow-100 p-6 border-4 border-yellow-300 shadow-[0_8px_0_0_rgba(234,179,8,0.3)] hover:shadow-[0_4px_0_0_rgba(234,179,8,0.3)]">
+              <Card className="plasticine-card clay-texture p-6 border-0" style={{ background: 'linear-gradient(145deg, rgba(167, 139, 250, 0.25) 0%, rgba(139, 92, 246, 0.25) 100%)' }}>
                 <div className="text-5xl mb-4 animate-squeeze" style={{ animationDelay: '0.6s' }}>
                   💝
                 </div>
-                <h3 className="text-2xl font-bold mb-2 text-yellow-800">Забота</h3>
-                <p className="text-yellow-900">Индивидуальный подход к каждому</p>
+                <h3 className="text-2xl font-bold mb-2" style={{ color: '#8B5CF6' }}>Забота</h3>
+                <p style={{ color: '#5B21B6' }}>Индивидуальный подход к каждому</p>
               </Card>
             </div>
           </div>
@@ -221,11 +222,11 @@ const Index = () => {
               {portfolio.map((item, index) => (
                 <Card
                   key={index}
-                  className="plasticine-card bg-white p-6 border-4 border-accent/40 shadow-[0_8px_0_0_rgba(0,0,0,0.1)]"
+                  className="plasticine-card clay-texture p-6 border-0"
                 >
-                  <div className="text-5xl mb-4">{item.emoji}</div>
+                  <div className="text-5xl mb-4 animate-squeeze">{item.emoji}</div>
                   <h3 className="text-xl font-bold mb-2">{item.title}</h3>
-                  <Badge className="bg-accent text-white">{item.year}</Badge>
+                  <Badge className="text-white" style={{ background: 'linear-gradient(145deg, #9B87F5 0%, #7E69E6 100%)' }}>{item.year}</Badge>
                 </Card>
               ))}
             </div>
