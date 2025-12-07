@@ -99,7 +99,7 @@
   }
 
   .plasticine-button {
-    @apply rounded-full transition-all duration-400;
+    @apply rounded-full transition-all duration-300;
     position: relative;
     overflow: hidden;
     box-shadow:
