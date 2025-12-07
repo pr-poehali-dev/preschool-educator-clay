@@ -116,12 +116,12 @@ const Index = () => {
 
   return (
     <div className="min-h-screen pb-20">
-      <header className="sticky top-0 z-50 bg-primary/95 backdrop-blur-sm shadow-lg">
+      <header className="sticky top-0 z-50 backdrop-blur-sm" style={{ background: 'linear-gradient(135deg, #FFB76B 0%, #FF8A5C 100%)' }}>
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3 animate-squeeze">
-              <div className="w-16 h-16 rounded-full bg-secondary flex items-center justify-center text-4xl shadow-[0_6px_0_0_rgba(0,0,0,0.1)]">
-                🎨
+              <div className="w-16 h-16 rounded-full plasticine-shine flex items-center justify-center text-4xl" style={{ background: 'linear-gradient(145deg, #FFF 0%, #FFE0B8 100%)', boxShadow: '0 8px 20px rgba(255, 140, 60, 0.35), 0 0 0 3px rgba(255, 255, 255, 0.5) inset' }}>
+                ☀️
               </div>
               <div>
                 <h1 className="text-2xl md:text-3xl font-bold text-white">Воспитатель</h1>
@@ -141,7 +141,7 @@ const Index = () => {
         </div>
       </header>
 
-      <nav className="sticky top-[88px] z-40 bg-white/80 backdrop-blur-sm border-b-4 border-primary/20 shadow-md">
+      <nav className="sticky top-[88px] z-40 backdrop-blur-md" style={{ background: 'rgba(255, 255, 255, 0.85)', borderBottom: '3px solid rgba(255, 183, 107, 0.3)', boxShadow: '0 4px 20px rgba(0, 0, 0, 0.06)' }}>
         <div className="container mx-auto px-4">
           <div className="flex gap-2 py-3 overflow-x-auto">
             {[
@@ -158,11 +158,11 @@ const Index = () => {
                 key={item.id}
                 onClick={() => setActiveSection(item.id)}
                 variant={activeSection === item.id ? 'default' : 'outline'}
-                className={`plasticine-button whitespace-nowrap ${
-                  activeSection === item.id
-                    ? 'bg-primary text-white shadow-[0_6px_0_0_rgba(0,0,0,0.15)]'
-                    : 'bg-white shadow-[0_4px_0_0_rgba(0,0,0,0.1)]'
-                }`}
+                className="plasticine-button whitespace-nowrap"
+                style={activeSection === item.id 
+                  ? { background: 'linear-gradient(145deg, #FFB76B 0%, #FFA055 100%)', color: 'white' }
+                  : { background: 'linear-gradient(145deg, #FFFFFF 0%, #FFF8F0 100%)', color: '#555' }
+                }
               >
                 <Icon name={item.icon as any} size={18} />
                 <span className="ml-2">{item.label}</span>
@@ -175,9 +175,9 @@ const Index = () => {
       <main className="container mx-auto px-4 py-8">
         {activeSection === 'home' && (
           <div className="space-y-8 animate-in fade-in duration-500">
-            <Card className="plasticine-card bg-gradient-to-br from-primary/20 to-secondary/20 p-8 border-4 border-primary/30 shadow-[0_12px_0_0_rgba(0,0,0,0.1)]">
+            <Card className="plasticine-card plasticine-shine p-8 border-0" style={{ background: 'linear-gradient(145deg, #FFF8F0 0%, #FFE8D5 100%)' }}>
               <div className="flex flex-col md:flex-row items-center gap-6">
-                <div className="w-32 h-32 rounded-full bg-accent flex items-center justify-center text-6xl shadow-[0_8px_0_0_rgba(0,0,0,0.15)] animate-float">
+                <div className="w-32 h-32 rounded-full plasticine-shine flex items-center justify-center text-6xl animate-float" style={{ background: 'linear-gradient(145deg, #FFD580 0%, #FFC04D 100%)', boxShadow: '0 12px 30px rgba(255, 183, 107, 0.4), 0 0 0 4px rgba(255, 255, 255, 0.6) inset' }}>
                   👩‍🏫
                 </div>
                 <div className="flex-1 text-center md:text-left">

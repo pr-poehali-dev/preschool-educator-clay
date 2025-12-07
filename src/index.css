@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -6,35 +6,35 @@
 
 @layer base {
   :root {
-    --background: 45 100% 96%;
-    --foreground: 280 10% 20%;
+    --background: 45 100% 98%;
+    --foreground: 220 15% 25%;
 
     --card: 0 0% 100%;
-    --card-foreground: 280 10% 20%;
+    --card-foreground: 220 15% 25%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 280 10% 20%;
+    --popover-foreground: 220 15% 25%;
 
-    --primary: 330 100% 70%;
+    --primary: 25 95% 65%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 45 100% 62%;
-    --secondary-foreground: 280 10% 20%;
+    --secondary: 340 90% 68%;
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 270 30% 95%;
-    --muted-foreground: 280 10% 45%;
+    --muted: 200 25% 95%;
+    --muted-foreground: 220 10% 50%;
 
-    --accent: 165 60% 60%;
+    --accent: 160 75% 65%;
     --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 84% 60%;
+    --destructive: 0 85% 65%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 270 30% 90%;
-    --input: 270 30% 90%;
-    --ring: 330 100% 70%;
+    --border: 220 20% 92%;
+    --input: 220 20% 92%;
+    --ring: 25 95% 65%;
 
-    --radius: 1.5rem;
+    --radius: 2rem;
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -53,39 +53,67 @@
   }
 
   body {
-    @apply bg-background text-foreground font-['Fredoka',sans-serif];
-    background-image:
+    @apply bg-background text-foreground font-['Baloo_2',sans-serif];
+    background:
       radial-gradient(
-        circle at 20% 50%,
-        rgba(255, 107, 157, 0.1) 0%,
-        transparent 50%
+        ellipse 800px 600px at 20% 30%,
+        rgba(255, 180, 120, 0.15),
+        transparent
       ),
       radial-gradient(
-        circle at 80% 80%,
-        rgba(107, 207, 127, 0.1) 0%,
-        transparent 50%
+        ellipse 900px 700px at 80% 70%,
+        rgba(255, 110, 180, 0.12),
+        transparent
       ),
       radial-gradient(
-        circle at 40% 20%,
-        rgba(255, 217, 61, 0.1) 0%,
-        transparent 50%
-      );
+        ellipse 700px 500px at 50% 100%,
+        rgba(100, 220, 180, 0.1),
+        transparent
+      ),
+      linear-gradient(135deg, #fff9f0 0%, #fff5e8 50%, #fff0dc 100%);
   }
 }
 
 @layer components {
   .plasticine-card {
-    @apply rounded-[2rem] shadow-[0_8px_0_0] transition-all duration-200;
-    @apply hover:translate-y-1 hover:shadow-[0_4px_0_0];
+    @apply rounded-[2.5rem] transition-all duration-300;
+    box-shadow:
+      0 12px 24px -8px rgba(0, 0, 0, 0.12),
+      0 0 0 1px rgba(255, 255, 255, 0.9) inset,
+      0 2px 4px rgba(255, 255, 255, 0.8) inset;
+    background: linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.95),
+      rgba(255, 255, 255, 0.85)
+    );
+  }
+
+  .plasticine-card:hover {
+    @apply translate-y-[-4px];
+    box-shadow:
+      0 16px 32px -10px rgba(0, 0, 0, 0.16),
+      0 0 0 1px rgba(255, 255, 255, 0.95) inset,
+      0 2px 6px rgba(255, 255, 255, 0.9) inset;
   }
 
   .plasticine-button {
-    @apply rounded-full shadow-[0_6px_0_0] transition-all duration-150;
-    @apply active:translate-y-1 active:shadow-[0_2px_0_0];
+    @apply rounded-full transition-all duration-300;
+    box-shadow:
+      0 8px 16px -6px rgba(0, 0, 0, 0.15),
+      0 0 0 1px rgba(255, 255, 255, 0.4) inset,
+      0 2px 3px rgba(255, 255, 255, 0.6) inset;
+  }
+
+  .plasticine-button:active {
+    @apply translate-y-[2px];
+    box-shadow:
+      0 4px 8px -4px rgba(0, 0, 0, 0.2),
+      0 0 0 1px rgba(255, 255, 255, 0.3) inset;
   }
 
   .notification-badge {
     @apply absolute -top-2 -right-2 w-6 h-6 rounded-full bg-destructive text-white text-xs flex items-center justify-center animate-bounce;
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.4);
   }
 }
 
@@ -106,13 +134,48 @@
 @keyframes squeeze {
   0%,
   100% {
-    transform: scale(1);
+    transform: scale(1) rotate(0deg);
   }
-  50% {
-    transform: scale(1.05) rotate(2deg);
+  25% {
+    transform: scale(1.03) rotate(1deg);
+  }
+  75% {
+    transform: scale(1.03) rotate(-1deg);
   }
 }
 
 .animate-squeeze {
-  animation: squeeze 2s ease-in-out infinite;
+  animation: squeeze 3s ease-in-out infinite;
+}
+
+@keyframes shine {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+.plasticine-shine {
+  position: relative;
+  overflow: hidden;
+}
+
+.plasticine-shine::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.3) 50%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation: shine 3s ease-in-out infinite;
+  pointer-events: none;
 }
